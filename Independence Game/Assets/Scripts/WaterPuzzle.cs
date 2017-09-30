@@ -25,24 +25,15 @@ public class WaterPuzzle : MonoBehaviour {
         t[2].text = "";
 	}
 	
-	// Update is called once per frame
-	void Update ()
+    public void Resolver()
     {
-		
-	}
-
-    private void FixedUpdate()
-    {
-        if(Input.GetKeyDown(KeyCode.E))
+        if (r1.mass == solucion || r2.mass == solucion)
         {
-            if(r1.mass == solucion || r2.mass == solucion)
-            {
-                t[2].text = "CORRECTO";
-            }
-            else
-            {
-                t[2].text = "INCORRECTO";
-            }
+            t[2].text = "CORRECTO";
+        }
+        else
+        {
+            t[2].text = "INCORRECTO";
         }
     }
 

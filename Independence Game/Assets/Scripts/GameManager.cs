@@ -7,11 +7,12 @@ public class GameManager : MonoBehaviour {
     public enum GameState
     {
         PAUSE,
-        ACTIVE
+        ACTIVE,
+        RESOLVIENDO_PUZZLE
     }
 
     public static GameManager instance=null;
-    
+    public GameState estadoJuego;
 
     private void Awake()
     {
@@ -30,7 +31,7 @@ public class GameManager : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
-       
+        estadoJuego = GameState.ACTIVE;
 	}
 	
 	// Update is called once per frame

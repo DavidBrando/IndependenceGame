@@ -7,11 +7,26 @@ public class PassPuzzle : MonoBehaviour {
 
 
     public string solucion;
+    private bool solucionado;
     public List<GameObject> n;
     private string pass;
+    
+    public bool Solucionado
+    {
+        get
+        {
+            return solucionado;
+        }
 
-	// Use this for initialization
-	void Start () {
+        set
+        {
+            solucionado = value;
+        }
+    }
+
+    // Use this for initialization
+    void Start () {
+        Solucionado = false;
         ActualizaPass();
 	}
 	
@@ -20,7 +35,7 @@ public class PassPuzzle : MonoBehaviour {
 
         if (solucion == pass)
         {
-            Debug.Log("Solucion correcta");
+            Solucionado = true;
         }
 
         ActualizaPass();
@@ -31,4 +46,6 @@ public class PassPuzzle : MonoBehaviour {
         pass = "";
         n.ForEach(x => pass += x.GetComponent<Text>().text);
     }
+
+    
 }

@@ -8,10 +8,13 @@ public class abrirPuerta : MonoBehaviour {
 
     public float velocidad = 20.0f;
     public float abertura = 15.0f;
+    public bool codigo;
     private bool movimiento;
     private bool abierta;
     private float rotY;
     private Vector3 posIni;
+    public GameObject panelCodigoUI;
+    private PassPuzzle puzzle;
 
 	void Start () {
 
@@ -65,8 +68,8 @@ public class abrirPuerta : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
-
-        Debug.Log("COLISIONO");
+        if(codigo)
+            puzzle = gameObject.GetComponent<PassPuzzle>();
         //collision.
         ////collision.transform.localPosition +=  Vector3.forward;
         //collision.rigidbody.AddRelativeForce(Vector3.down * 5000.0f);
@@ -75,7 +78,7 @@ public class abrirPuerta : MonoBehaviour {
 
     private void OnCollisionExit(Collision collision)
     {
-        Debug.Log("*ERUCTO* Me piro");
+   
 
     }
 
@@ -83,9 +86,19 @@ public class abrirPuerta : MonoBehaviour {
     {
         if (Input.GetButtonDown("Interactuar"))
         {
-            Debug.Log("Muzska is a lie");
-
-            movimiento = true;
+           if(!codigo)
+                movimiento = true;
+           else
+            {
+               panelCodigoUI.SetActive(true);
+               GameManager.instance.estadoJuego = GameManager.GameState.RESOLVIENDO_PUZZLE;
+               if(puzzle.Solucionado)
+               {
+                   movimiento = true;
+                   panelCodigoUI.SetActive(false);
+                   GameManager.instance.estadoJuego = GameManager.GameState.ACTIVE;
+               }
+            }
             // transform.localPosition += Vector3.right * velocidad * Time.deltaTime; 
 
         }

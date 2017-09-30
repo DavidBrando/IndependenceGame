@@ -49,21 +49,26 @@ public class CamaraFollow : MonoBehaviour {
 
         Cursor.visible = visibilityMouse;
 
-        float inputX = Input.GetAxis("RightStickHorizontal");
-        float inputZ = Input.GetAxis("RightStickVertical");
+       if(GameManager.instance.estadoJuego== GameManager.GameState.ACTIVE)
+        {
+            float inputX = Input.GetAxis("RightStickHorizontal");
+            float inputZ = Input.GetAxis("RightStickVertical");
 
-        mouseX = Input.GetAxis("Mouse X");
-        mouseY = Input.GetAxis("Mouse Y");
-        finalInputX = inputX + mouseX;
-        finalInputZ = inputZ + mouseY;
+            mouseX = Input.GetAxis("Mouse X");
+            mouseY = Input.GetAxis("Mouse Y");
+            finalInputX = inputX + mouseX;
+            finalInputZ = inputZ + mouseY;
 
-        rotY += finalInputX * inputSensitivity * Time.deltaTime;
-        rotX += finalInputZ * inputSensitivity * Time.deltaTime;
+            rotY += finalInputX * inputSensitivity * Time.deltaTime;
+            rotX += finalInputZ * inputSensitivity * Time.deltaTime;
 
-        rotX = Mathf.Clamp(rotX, -clangeAngle, clangeAngle);
+            rotX = Mathf.Clamp(rotX, -clangeAngle, clangeAngle);
 
-        Quaternion LocalRotaton = Quaternion.Euler(rotX, rotY, 0.0f);
-        transform.rotation = LocalRotaton;
+            Quaternion LocalRotaton = Quaternion.Euler(rotX, rotY, 0.0f);
+            transform.rotation = LocalRotaton;
+
+        }
+
 
 
     }

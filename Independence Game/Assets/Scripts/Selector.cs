@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using XInputDotNetPure;
 
 public class Selector : MonoBehaviour {
 
@@ -9,10 +10,13 @@ public class Selector : MonoBehaviour {
     private int posicion;
     public string tipo;
     public GameObject wp;
-    
+    private GamePadState state;
+    private GamePadState laststate;
+    public PlayerIndex playerIndex = 0;
 
-	// Use this for initialization
-	void Start () {
+
+    // Use this for initialization
+    void Start () {
         transform.position = n[0].transform.position;
         posicion = 0;
         
@@ -21,9 +25,13 @@ public class Selector : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if(tipo == "numeros")
+
+        laststate = state;
+        state = GamePad.GetState(playerIndex);
+        //state.DPad.Up, state.DPad.Right, state.DPad.Down, state.DPad.Left
+        if (tipo == "numeros")
         {
-            if (Input.GetButtonDown("Horizontal") && Input.GetAxis("Horizontal") < 0)
+            if ((Input.GetButtonDown("Horizontal") && Input.GetAxis("Horizontal") < 0 ) || (state.DPad.Left == ButtonState.Pressed && laststate.DPad.Left == ButtonState.Released) )
             {
                 if (posicion != 0)
                 {
@@ -31,7 +39,7 @@ public class Selector : MonoBehaviour {
                     transform.position = n[posicion].transform.position;
                 }
             }
-            else if (Input.GetButtonDown("Horizontal") && Input.GetAxis("Horizontal") > 0)
+            else if ((Input.GetButtonDown("Horizontal") && Input.GetAxis("Horizontal") > 0) || (state.DPad.Right == ButtonState.Pressed && laststate.DPad.Right == ButtonState.Released))
             {
                 if (posicion < 4)
                 {
@@ -41,11 +49,11 @@ public class Selector : MonoBehaviour {
             }
 
 
-            if (Input.GetButtonDown("Vertical") && Input.GetAxis("Vertical") < 0)
+            if ((Input.GetButtonDown("Vertical") && Input.GetAxis("Vertical") < 0) || (state.DPad.Down == ButtonState.Pressed && laststate.DPad.Down == ButtonState.Released))
             {
                 DecrementarN();
             }
-            else if (Input.GetButtonDown("Vertical") && Input.GetAxis("Vertical") > 0)
+            else if ((Input.GetButtonDown("Vertical") && Input.GetAxis("Vertical") > 0) || (state.DPad.Up == ButtonState.Pressed && laststate.DPad.Up == ButtonState.Released))
             {
                 AumentarN();
             }
@@ -69,6 +77,11 @@ public class Selector : MonoBehaviour {
                     transform.position = n[posicion].transform.position;
                 }
             }
+
+            if(Input.GetButtonDown("Interactuar") || (state.Buttons.X == ButtonState.Pressed && laststate.Buttons.X == ButtonState.Released))
+            {
+                wp.GetComponent<WaterPuzzle>().Resolver();
+            }
         }
 
 	}
@@ -79,6 +92,10 @@ public class Selector : MonoBehaviour {
         int i = int.Parse(t.text);
         if(i<9)
             i++;
+
+        else if (i == 9)
+            i = 0;
+
         t.text = i.ToString();
     }
 
@@ -86,9 +103,15 @@ public class Selector : MonoBehaviour {
     {
         Text t = n[posicion].GetComponent<Text>();
         int i = int.Parse(t.text);
+
         if (i > 0)
             i--;
+
+        else if (i == 0)
+            i = 9;
+
         t.text = i.ToString();
+
     }
 
     public void VolcarDcha()
