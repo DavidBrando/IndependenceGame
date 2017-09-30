@@ -37,6 +37,10 @@ public class ConversacionManager : MonoBehaviour {
             FinConversacion();
             return;
         }
+
+        string frase = frases.Dequeue();
+        StopAllCoroutines();
+        StartCoroutine(EscribeFrase(frase));
     }
 
     public void FinConversacion()
@@ -44,5 +48,12 @@ public class ConversacionManager : MonoBehaviour {
         uiConversacion.SetActive(false);
     }
 
-    
+    IEnumerator EscribeFrase(string f)
+    {
+        foreach(char c in f.ToCharArray())
+        {
+            textoConver.text += c;
+            yield return null;
+        }
+    }
 }
