@@ -1,17 +1,24 @@
 fileFormatVersion: 2
-guid: 8d0308759197f8c4a9d3fdb0a6876194
-timeCreated: 1506728315
+guid: 246455a6cc83c744cb1b0773df32c54e
+timeCreated: 1506760342
 licenseType: Free
 ModelImporter:
   serializedVersion: 21
   fileIDToRecycleName:
     100000: //RootNode
     100002: Plane005
+    100004: Plane005_MeshPart0
+    100006: Plane005_MeshPart1
     400000: //RootNode
     400002: Plane005
-    2300000: Plane005
-    3300000: Plane005
-    4300000: Plane005
+    400004: Plane005_MeshPart0
+    400006: Plane005_MeshPart1
+    2300000: Plane005_MeshPart0
+    2300002: Plane005_MeshPart1
+    3300000: Plane005_MeshPart0
+    3300002: Plane005_MeshPart1
+    4300000: Plane005_MeshPart0
+    4300002: Plane005_MeshPart1
   materials:
     importMaterials: 1
     materialName: 0

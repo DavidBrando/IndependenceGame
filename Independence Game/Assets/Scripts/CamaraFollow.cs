@@ -54,7 +54,7 @@ public class CamaraFollow : MonoBehaviour {
 
         mouseX = Input.GetAxis("Mouse X");
         mouseY = Input.GetAxis("Mouse Y");
-        finalInputX = -(inputX + mouseX);
+        finalInputX = inputX + mouseX;
         finalInputZ = inputZ + mouseY;
 
         rotY += finalInputX * inputSensitivity * Time.deltaTime;
