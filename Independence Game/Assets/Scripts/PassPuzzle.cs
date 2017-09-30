@@ -8,7 +8,7 @@ public class PassPuzzle : MonoBehaviour {
 
     public string solucion;
     public List<GameObject> n;
-    public string pass;
+    private string pass;
 
 	// Use this for initialization
 	void Start () {
