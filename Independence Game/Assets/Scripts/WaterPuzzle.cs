@@ -20,6 +20,9 @@ public class WaterPuzzle : MonoBehaviour {
         maxl1 = 5;
         maxl2 = 3;
         solucion = 4;
+        t[0].text = "C1: " + r1.mass.ToString();
+        t[1].text = "C2: " + r2.mass.ToString();
+        t[2].text = "";
 	}
 	
 	// Update is called once per frame
@@ -34,7 +37,11 @@ public class WaterPuzzle : MonoBehaviour {
         {
             if(r1.mass == solucion || r2.mass == solucion)
             {
-                Debug.Log("YESS esa es la buena");
+                t[2].text = "CORRECTO";
+            }
+            else
+            {
+                t[2].text = "INCORRECTO";
             }
         }
     }
@@ -48,12 +55,13 @@ public class WaterPuzzle : MonoBehaviour {
             {
                 r1.mass--;
                 if (r2.mass < 1)
-                    t[0].text = "C1: 0";
-                t[0].text = "C1: "+r1.mass.ToString();
+                    t[pos].text = "C1: 0";
+                else
+                    t[pos].text = "C1: "+r1.mass.ToString();
                 if (r2.mass< maxl2)
                 {
                     r2.mass++;
-                    t[1].text = "C2: "+r2.mass.ToString();
+                    t[pos+1].text = "C2: "+r2.mass.ToString();
                 }
             }
                 
@@ -66,8 +74,9 @@ public class WaterPuzzle : MonoBehaviour {
             {
                 r2.mass--;
                 if(r2.mass<1)
-                    t[1].text = "C2: 0" ;
-                t[1].text ="C2: "+ r2.mass.ToString();
+                    t[pos].text = "C2: 0" ;
+                else
+                    t[pos].text ="C2: "+ r2.mass.ToString();
             }
         }
     }
@@ -80,9 +89,10 @@ public class WaterPuzzle : MonoBehaviour {
             if(r1.mass>0)
             {
                 r1.mass--;
-                if (r2.mass < 1)
-                    t[0].text = "C1: 0";
-                t[0].text = "C1: "+r1.mass.ToString();
+                if (r1.mass < 1)
+                    t[pos].text = "C1: 0";
+                else
+                    t[pos].text = "C1: "+r1.mass.ToString();
             }
                 
             
@@ -94,17 +104,30 @@ public class WaterPuzzle : MonoBehaviour {
             {
                 r2.mass--;
                 if (r2.mass < 1)
-                    t[1].text = "C2: 0";
-                t[1].text = r2.mass.ToString();
+                    t[pos].text = "C2: 0";
+                else
+                    t[pos].text = r2.mass.ToString();
                 if(r1.mass < maxl1)
                 {
                     r1.mass++;
-                    t[0].text = r1.mass.ToString();
+                    t[pos-1].text = r1.mass.ToString();
                 }
             }
         }
 
     }
 
-
+    public void Rellenar(int pos)
+    {
+        if(pos==0)
+        {
+            r1.mass = maxl1;
+            t[pos].text = "C1: "+r1.mass.ToString();
+        }
+        else
+        {
+            r2.mass = maxl2;
+            t[pos].text = "C2: "+r2.mass.ToString();
+        }
+    }
 }

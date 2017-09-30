@@ -100,4 +100,9 @@ public class Selector : MonoBehaviour {
     {
         wp.GetComponent<WaterPuzzle>().VolcarIzq(posicion);
     }
+
+    public void Rellenar()
+    {
+        wp.GetComponent<WaterPuzzle>().Rellenar(posicion);
+    }
 }
