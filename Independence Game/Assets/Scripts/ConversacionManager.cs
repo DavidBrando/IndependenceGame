@@ -9,7 +9,7 @@ public class ConversacionManager : MonoBehaviour {
     private Queue<string> frases;
     public Text textoConver;
     public GameObject uiConversacion;
-    public Animator anim;
+    
     private GamePadState state;
     private GamePadState laststate;
 
@@ -23,6 +23,7 @@ public class ConversacionManager : MonoBehaviour {
     {
         frases = new Queue<string>();
     }
+
     public void EmpiezaConversacion(Conversacion conver)
     {
 
@@ -33,7 +34,11 @@ public class ConversacionManager : MonoBehaviour {
         
 
         //encola las distintas frases de la conversacion
-        conver.dialogo.ForEach(x => frases.Enqueue(x));
+        foreach(string s in conver.dialogo)
+        {
+            frases.Enqueue(s);
+        }
+        
 
         SiguienteFrase();
     }
@@ -59,6 +64,7 @@ public class ConversacionManager : MonoBehaviour {
 
     IEnumerator EscribeFrase(string f)
     {
+        textoConver.text = "";
         foreach(char c in f.ToCharArray())
         {
             textoConver.text += c;
