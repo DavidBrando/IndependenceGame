@@ -48,19 +48,22 @@ public class GameManager : MonoBehaviour {
         //int minutes = Mathf.FloorToInt(timer / 60F);
         //int seconds = Mathf.FloorToInt(timer - minutes * 60);
         //string niceTime = string.Format("{0:0}:{1:00}", minutes, seconds);
-
-        gameTimer += Time.deltaTime;
-
-        min = (int) (gameTimer / 60) % 60;
-        seg = (int) (gameTimer % 60);
-
-       string format = string.Format("{0:0}:{1:00}", min, seg);
-
-        timer.GetComponentInChildren<Text>().text = format;
-
-        if(min >= 4)
+        if(estadoJuego!=GameState.PAUSE)
         {
-            timer.GetComponentInChildren<Text>().color = Color.red;
+            gameTimer += Time.deltaTime;
+
+            min = (int)(gameTimer / 60) % 60;
+            seg = (int)(gameTimer % 60);
+
+            string format = string.Format("{0:0}:{1:00}", min, seg);
+
+            timer.GetComponentInChildren<Text>().text = format;
+
+            if (min >= 4)
+            {
+                timer.GetComponentInChildren<Text>().color = Color.red;
+            }
         }
+
 	}
 }

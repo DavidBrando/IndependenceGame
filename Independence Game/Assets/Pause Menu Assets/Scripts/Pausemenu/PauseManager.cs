@@ -15,6 +15,8 @@ namespace GreatArcStudios
     /// </summary>
     public class PauseManager : MonoBehaviour
     {
+
+        public static PauseManager instance;
         /// <summary>
         /// This is the main panel holder, which holds the main panel and should be called "main panel"
         /// </summary> 
@@ -277,6 +279,21 @@ namespace GreatArcStudios
         /// <summary>
         /// The start method; you will need to place all of your inital value getting/setting here. 
         /// </summary>
+        /// 
+        private void Awake()
+        {
+            if (instance == null)
+            {
+                instance = this;
+            }
+            else if (instance != this)
+            {
+                Destroy(gameObject);
+            }
+
+            DontDestroyOnLoad(gameObject);
+        }
+
         public void Start()
         {
            
@@ -443,12 +460,12 @@ namespace GreatArcStudios
             {
                 pauseMenu.text = "Audio Menu";
             }
-            else if (mainPanel.active == true)
+            /*else if (mainPanel.active == true)
             {
                 pauseMenu.text = "Pause Menu";
-            }
+            }*/
 
-            if (Input.GetKeyDown(KeyCode.Escape) && mainPanel.active == false)
+            if (Input.GetKeyDown(KeyCode.Escape) && mainPanel.active == false && GameManager.instance.estadoJuego!= GameManager.GameState.RESOLVIENDO_PUZZLE)
             {
 
                 uiEventSystem.SetSelectedGameObject(defualtSelectedMain);
@@ -466,8 +483,10 @@ namespace GreatArcStudios
                   {
                      blurEffect.enabled = true;
                  }  */
+                GameManager.instance.estadoJuego = GameManager.GameState.PAUSE;
             }
-            else if(Input.GetKeyDown(KeyCode.Escape) && mainPanel.active == true) {
+            else if(Input.GetKeyDown(KeyCode.Escape) && mainPanel.active == true && GameManager.instance.estadoJuego != GameManager.GameState.RESOLVIENDO_PUZZLE)
+            {
                 Time.timeScale = timeScale;
                 mainPanel.SetActive(false);
                 vidPanel.SetActive(false);
@@ -478,6 +497,7 @@ namespace GreatArcStudios
                 {
                     otherUIElements[i].gameObject.SetActive(true);
                 }
+                GameManager.instance.estadoJuego = GameManager.GameState.ACTIVE;
             }
 
 

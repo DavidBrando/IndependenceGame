@@ -9,7 +9,7 @@ public class Selector : MonoBehaviour {
     public List<GameObject> n;
     private int posicion;
     public string tipo;
-    public GameObject wp,mm;
+    public GameObject wp,mm,cm;
     private GamePadState state;
     private GamePadState laststate;
     public PlayerIndex playerIndex = 0;
@@ -17,8 +17,12 @@ public class Selector : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        transform.position = n[0].transform.position;
-        posicion = 0;
+        if(tipo!="conversacion")
+        {
+            transform.position = n[0].transform.position;
+            posicion = 0;
+        }
+
         
 	}
 	
@@ -134,6 +138,14 @@ public class Selector : MonoBehaviour {
             if (Input.GetButtonDown("Interactuar") || (state.Buttons.X == ButtonState.Pressed && laststate.Buttons.X == ButtonState.Released))
             {
                 mm.GetComponent<Mastermind>().Resolver();
+            }
+        }
+
+        if(tipo == "conversación")
+        {
+            if(Input.GetKeyDown(KeyCode.Return) || (state.Buttons.A == ButtonState.Pressed && laststate.Buttons.A == ButtonState.Released))
+            {
+                cm.GetComponent<ConversacionManager>().SiguienteFrase();
             }
         }
 
