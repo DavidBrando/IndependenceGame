@@ -5333,7 +5333,7 @@ MonoBehaviour:
   mainMenu: Pausemenu
   DOFScriptName: 
   AOScriptName: 
-  mainCam: {fileID: 0}
+  mainCam: {fileID: 20654609285180592}
   mainCamObj: {fileID: 0}
   detailDensity: 0
   timeScale: 1
