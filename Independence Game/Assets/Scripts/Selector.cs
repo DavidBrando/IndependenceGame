@@ -61,15 +61,15 @@ public class Selector : MonoBehaviour {
 
         if(tipo == "agua")
         {
-            if (Input.GetButtonDown("Horizontal") && Input.GetAxis("Horizontal") < 0)
-            {
+            if ((Input.GetButtonDown("Horizontal") && Input.GetAxis("Horizontal") < 0) || (state.DPad.Left == ButtonState.Pressed && laststate.DPad.Left == ButtonState.Released))
+                {
                 if (posicion != 0)
                 {
                     posicion--;
                     transform.position = n[posicion].transform.position;
                 }
             }
-            else if (Input.GetButtonDown("Horizontal") && Input.GetAxis("Horizontal") > 0)
+            else if ((Input.GetButtonDown("Horizontal") && Input.GetAxis("Horizontal") > 0) || (state.DPad.Right == ButtonState.Pressed && laststate.DPad.Right == ButtonState.Released))
             {
                 if (posicion < 1)
                 {
@@ -78,13 +78,33 @@ public class Selector : MonoBehaviour {
                 }
             }
 
-            if(Input.GetButtonDown("Interactuar") || (state.Buttons.X == ButtonState.Pressed && laststate.Buttons.X == ButtonState.Released))
+
+            if(Input.GetKeyDown(KeyCode.Alpha1) || (state.Buttons.LeftShoulder == ButtonState.Pressed && laststate.Buttons.LeftShoulder == ButtonState.Released))
+            {
+                VolcarIzq();
+            }
+
+            if(Input.GetKeyDown(KeyCode.Alpha2) || (state.Buttons.RightShoulder == ButtonState.Pressed && laststate.Buttons.RightShoulder == ButtonState.Released))
+            {
+                VolcarDcha();
+            }
+
+            if(Input.GetMouseButtonDown(0) || (state.Buttons.A == ButtonState.Pressed && laststate.Buttons.A == ButtonState.Released))
+            {
+                Rellenar();
+            }
+
+
+
+            if (Input.GetButtonDown("Interactuar") || (state.Buttons.X == ButtonState.Pressed && laststate.Buttons.X == ButtonState.Released))
             {
                 wp.GetComponent<WaterPuzzle>().Resolver();
             }
         }
 
-	}
+
+
+    }
 
     public void AumentarN()
     {

@@ -36,32 +36,49 @@ public class abrirPuerta : MonoBehaviour {
 
 
 
-    private void updatePuerta()
+    public void updatePuerta()
     {
 
-        Debug.Log("ENTROOOOOO");
+        Debug.Log(tag + " " + movimiento + ": ENTROOOOOO");
 
-
-        if (rotY == 0.0f)
+        if (this.tag == "puertaCelda")
         {
-            transform.localPosition += Vector3.left * velocidad * Time.deltaTime;
-
-            if(transform.localPosition.x  <= posIni.x - abertura)
+            if (rotY == 0.0f)
             {
-                movimiento = false;
-                abierta = true;
+                transform.localPosition += Vector3.left * velocidad * Time.deltaTime;
+
+                if (transform.localPosition.x <= posIni.x - abertura)
+                {
+                    movimiento = false;
+                    abierta = true;
+                }
+
             }
 
+            else if (rotY == 180.0f)
+            {
+
+            }
+
+            else if (rotY == 270.0f)
+            {
+
+            }
         }
 
-        else if(rotY == 180.0f)
+        else if(this.tag == "puertaNivel")
         {
+            if (rotY == 0.0f)
+            {
+                transform.localPosition += Vector3.back * velocidad * Time.deltaTime;
 
-        }
+                if (transform.localPosition.z <= posIni.z - abertura)
+                {
+                    movimiento = false;
+                    abierta = true;
+                }
 
-        else if(rotY == 270.0f)
-        {
-
+            }
         }
     }
 
@@ -86,8 +103,8 @@ public class abrirPuerta : MonoBehaviour {
     {
         if (Input.GetButtonDown("Interactuar"))
         {
-           if(!codigo)
-                movimiento = true;
+           if(!codigo )
+                 movimiento = true;
            else
             {
                panelCodigoUI.SetActive(true);
@@ -103,5 +120,10 @@ public class abrirPuerta : MonoBehaviour {
 
         }
 
+    }
+
+    public void SetMovimiento(bool x) 
+    {
+        movimiento = x;
     }
 }

@@ -37,6 +37,7 @@ public class ActivarPuzzleAgua : MonoBehaviour {
             GameManager.instance.estadoJuego = GameManager.GameState.RESOLVIENDO_PUZZLE;
         }
 
+
         if(wp!=null && wp.t[2].text == "CORRECTO")
         {
             cam1.gameObject.SetActive(true);
@@ -44,6 +45,8 @@ public class ActivarPuzzleAgua : MonoBehaviour {
             panelPuzzleAguaUI.SetActive(false);
             wp.t[2].text = "Solucionado";
             GameManager.instance.estadoJuego = GameManager.GameState.ACTIVE;
+            puerta.GetComponent<abrirPuerta>().SetMovimiento(true);
+            puerta.GetComponent<abrirPuerta>().updatePuerta();
         }
     }
 }
