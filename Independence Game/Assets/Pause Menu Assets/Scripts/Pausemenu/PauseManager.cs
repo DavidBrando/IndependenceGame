@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.IO;
+using UnityEngine.SceneManagement;
 //using UnityStandardAssets.ImageEffects;
 /// <summary>
 ///  Copyright (c) 2016 Eric Zhu 
@@ -297,71 +298,71 @@ namespace GreatArcStudios
         public void Start()
         {
            
-            readUseSimpleTerrain = useSimpleTerrain;
-            if (useSimpleTerrain)
-            {
-                readSimpleTerrain = simpleTerrain;
-            }
-            else
-            {
-                readTerrain = terrain;
-            }
+            //readUseSimpleTerrain = useSimpleTerrain;
+            //if (useSimpleTerrain)
+            //{
+            //    readSimpleTerrain = simpleTerrain;
+            //}
+            //else
+            //{
+            //    readTerrain = terrain;
+            //}
            
-            mainCamShared = mainCam;
-            //Set the lastmusicmult and last audiomult
-            lastMusicMult = audioMusicSlider.value;
-            lastAudioMult = audioEffectsSlider.value;
-            //Set the first selected item
-            uiEventSystem.firstSelectedGameObject = defualtSelectedMain;
-            //Get the presets from the quality settings 
-            presets = QualitySettings.names;
-            presetLabel.text = presets[QualitySettings.GetQualityLevel()].ToString();
-            _currentLevel = QualitySettings.GetQualityLevel();
-            //Get the current resoultion, if the game is in fullscreen, and set the label to the original resolution
-            allRes = Screen.resolutions;
-            currentRes = Screen.currentResolution;
-            //Debug.Log("ini res" + currentRes);
-            resolutionLabel.text = Screen.currentResolution.width.ToString() + " x " + Screen.currentResolution.height.ToString();
-            isFullscreen = Screen.fullScreen;
-            //get initial screen effect bools
-            lastAOBool = aoToggle.isOn;
-            lastDOFBool = dofToggle.isOn;
-            //get all specified audio source volumes
-            _beforeEffectVol = new float[_audioEffectAmt];
-            beforeMaster = AudioListener.volume;
-            //get all ini values
-            aaQualINI = QualitySettings.antiAliasing;
-            renderDistINI = mainCam.farClipPlane;
-            shadowDistINI = QualitySettings.shadowDistance;
-            fovINI = mainCam.fieldOfView;
-            msaaINI = QualitySettings.antiAliasing;
-            vsyncINI = QualitySettings.vSyncCount;
-            //enable titles
-            TitleTexts.SetActive(true);
-            //Find terrain
-            terrain = Terrain.activeTerrain;
-            //Disable other panels
-            mainPanel.SetActive(false);
-            vidPanel.SetActive(false);
-            audioPanel.SetActive(false);
-            //Enable mask
-            mask.SetActive(false);
-            //set last texture limit
-            lastTexLimit = QualitySettings.masterTextureLimit;
-            //set last shadow cascade 
-            lastShadowCascade = QualitySettings.shadowCascades;
-            saveSettings.LoadGameSettings(File.ReadAllText(Application.persistentDataPath + "/" + saveSettings.fileName));
-            try
-            {
-                densityINI = Terrain.activeTerrain.detailObjectDensity;
-            }
-            catch
-            {
-                if (terrain = null)
-                {
-                    Debug.Log("Terrain Not Assigned");
-                }
-            }
+            //mainCamShared = mainCam;
+            ////Set the lastmusicmult and last audiomult
+            //lastMusicMult = audioMusicSlider.value;
+            //lastAudioMult = audioEffectsSlider.value;
+            ////Set the first selected item
+            ////uiEventSystem.firstSelectedGameObject = defualtSelectedMain;
+            ////Get the presets from the quality settings 
+            //presets = QualitySettings.names;
+            //presetLabel.text = presets[QualitySettings.GetQualityLevel()].ToString();
+            //_currentLevel = QualitySettings.GetQualityLevel();
+            ////Get the current resoultion, if the game is in fullscreen, and set the label to the original resolution
+            //allRes = Screen.resolutions;
+            //currentRes = Screen.currentResolution;
+            ////Debug.Log("ini res" + currentRes);
+            //resolutionLabel.text = Screen.currentResolution.width.ToString() + " x " + Screen.currentResolution.height.ToString();
+            //isFullscreen = Screen.fullScreen;
+            ////get initial screen effect bools
+            //lastAOBool = aoToggle.isOn;
+            //lastDOFBool = dofToggle.isOn;
+            ////get all specified audio source volumes
+            //_beforeEffectVol = new float[_audioEffectAmt];
+            //beforeMaster = AudioListener.volume;
+            ////get all ini values
+            //aaQualINI = QualitySettings.antiAliasing;
+            //renderDistINI = mainCam.farClipPlane;
+            //shadowDistINI = QualitySettings.shadowDistance;
+            //fovINI = mainCam.fieldOfView;
+            //msaaINI = QualitySettings.antiAliasing;
+            //vsyncINI = QualitySettings.vSyncCount;
+            ////enable titles
+            //TitleTexts.SetActive(true);
+            ////Find terrain
+            //terrain = Terrain.activeTerrain;
+            ////Disable other panels
+            //mainPanel.SetActive(false);
+            //vidPanel.SetActive(false);
+            //audioPanel.SetActive(false);
+            ////Enable mask
+            //mask.SetActive(false);
+            ////set last texture limit
+            //lastTexLimit = QualitySettings.masterTextureLimit;
+            ////set last shadow cascade 
+            //lastShadowCascade = QualitySettings.shadowCascades;
+            //saveSettings.LoadGameSettings(File.ReadAllText(Application.persistentDataPath + "/" + saveSettings.fileName));
+            //try
+            //{
+            //    densityINI = Terrain.activeTerrain.detailObjectDensity;
+            //}
+            //catch
+            //{
+            //    if (terrain = null)
+            //    {
+            //        Debug.Log("Terrain Not Assigned");
+            //    }
+            //}
 
             //set the blur boolean to false;
             //blurBool = false;
@@ -375,6 +376,14 @@ namespace GreatArcStudios
         /// <summary>
         /// Restart the level by loading the loaded level.
         /// </summary>
+
+        public void EmpezarJuego()
+        {
+
+            SceneManager.LoadScene("Test2");
+
+        }
+
         public void Restart()
         {
             Application.LoadLevel(Application.loadedLevel);
