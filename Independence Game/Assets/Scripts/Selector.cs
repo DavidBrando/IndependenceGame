@@ -9,7 +9,7 @@ public class Selector : MonoBehaviour {
     public List<GameObject> n;
     private int posicion;
     public string tipo;
-    public GameObject wp;
+    public GameObject wp,mm;
     private GamePadState state;
     private GamePadState laststate;
     public PlayerIndex playerIndex = 0;
@@ -102,7 +102,40 @@ public class Selector : MonoBehaviour {
             }
         }
 
+        if (tipo == "colores")
+        {
+            if ((Input.GetButtonDown("Horizontal") && Input.GetAxis("Horizontal") < 0) || (state.DPad.Left == ButtonState.Pressed && laststate.DPad.Left == ButtonState.Released))
+            {
+                if (posicion != 0)
+                {
+                    posicion--;
+                    transform.position = n[posicion].transform.position;
+                }
+            }
+            else if ((Input.GetButtonDown("Horizontal") && Input.GetAxis("Horizontal") > 0) || (state.DPad.Right == ButtonState.Pressed && laststate.DPad.Right == ButtonState.Released))
+            {
+                if (posicion < 4)
+                {
+                    posicion++;
+                    transform.position = n[posicion].transform.position;
+                }
+            }
 
+
+            if ((Input.GetButtonDown("Vertical") && Input.GetAxis("Vertical") < 0) || (state.DPad.Down == ButtonState.Pressed && laststate.DPad.Down == ButtonState.Released))
+            {
+                CambiaColor(1);
+            }
+            else if ((Input.GetButtonDown("Vertical") && Input.GetAxis("Vertical") > 0) || (state.DPad.Up == ButtonState.Pressed && laststate.DPad.Up == ButtonState.Released))
+            {
+                CambiaColor(-1);
+            }
+
+            if (Input.GetButtonDown("Interactuar") || (state.Buttons.X == ButtonState.Pressed && laststate.Buttons.X == ButtonState.Released))
+            {
+                mm.GetComponent<Mastermind>().Resolver();
+            }
+        }
 
     }
 
@@ -147,5 +180,16 @@ public class Selector : MonoBehaviour {
     public void Rellenar()
     {
         wp.GetComponent<WaterPuzzle>().Rellenar(posicion);
+    }
+
+    public void CambiaColor(int o)
+    {
+        mm.GetComponent<Mastermind>().CambiaColor(posicion, o);
+    }
+
+    private void OnEnable()
+    {
+        transform.position = n[0].transform.position;
+        posicion = 0;
     }
 }

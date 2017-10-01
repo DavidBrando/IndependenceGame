@@ -54,7 +54,11 @@ public class PassPuzzle : MonoBehaviour {
         }
     }
 
-
+    private void OnEnable()
+    {
+        pass = "";
+        n.ForEach(x => x.GetComponent<Text>().text = "0");
+    }
 
     void ActualizaPass()
     {
