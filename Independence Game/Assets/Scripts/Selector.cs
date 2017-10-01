@@ -141,9 +141,9 @@ public class Selector : MonoBehaviour {
             }
         }
 
-        if(tipo == "conversación")
+        if(tipo == "conversacion")
         {
-            if(Input.GetKeyDown(KeyCode.Return) || (state.Buttons.A == ButtonState.Pressed && laststate.Buttons.A == ButtonState.Released))
+            if(Input.GetKeyDown(KeyCode.F) || (state.Buttons.A == ButtonState.Pressed && laststate.Buttons.A == ButtonState.Released))
             {
                 cm.GetComponent<ConversacionManager>().SiguienteFrase();
             }
@@ -201,7 +201,11 @@ public class Selector : MonoBehaviour {
 
     private void OnEnable()
     {
-        transform.position = n[0].transform.position;
-        posicion = 0;
+        if(tipo!="conversacion")
+        {
+            transform.position = n[0].transform.position;
+            posicion = 0;
+        }
+        
     }
 }

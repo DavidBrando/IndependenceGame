@@ -20528,6 +20528,57 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.081615, y: -0.040415905, z: 0.00029075146}
     m_Extent: {x: 0.037738636, y: 0.060759716, z: 0.07119451}
   m_DirtyAABB: 0
+--- !u!1 &1166921509
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1166921510}
+  - component: {fileID: 1166921511}
+  m_Layer: 5
+  m_Name: Selector
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1166921510
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1166921509}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1917559386}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1166921511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1166921509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b67d9328ec6a41740ae419a945e8f3bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  n: []
+  tipo: conversacion
+  wp: {fileID: 0}
+  mm: {fileID: 0}
+  cm: {fileID: 1917559385}
+  playerIndex: 0
 --- !u!1 &1171660388
 GameObject:
   m_ObjectHideFlags: 0
@@ -21013,8 +21064,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0, y: -0}
-  m_SizeDelta: {x: 609.7, y: 86.5}
+  m_AnchoredPosition: {x: 0.000019073, y: 0.000005126}
+  m_SizeDelta: {x: 1154.1, y: 175}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1220438844
 MonoBehaviour:
@@ -21041,7 +21092,7 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 10
-    m_MaxSize: 19
+    m_MaxSize: 47
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -30279,13 +30330,14 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1220438843}
+  - {fileID: 1166921510}
   m_Father: {fileID: 232633567}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.0000076294, y: -136.2}
-  m_SizeDelta: {x: -171.9, y: -340.5}
+  m_AnchoredPosition: {x: -0.0000076294, y: -391.5}
+  m_SizeDelta: {x: -171.9, y: -851.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1917559387
 MonoBehaviour:
@@ -30333,7 +30385,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textoConver: {fileID: 1220438844}
   uiConversacion: {fileID: 1917559385}
-  anim: {fileID: 0}
 --- !u!1 &1919749145
 GameObject:
   m_ObjectHideFlags: 0
@@ -32133,28 +32184,9 @@ MonoBehaviour:
     dialogo:
     - "Abro el libro y miro que hay un extracto sobre la Constituci\xF3n Espa\xF1ola
       de a\xF1o 1978 que pone:"
-    - "\" Estado de Derecho\r\n\r\nHist\xF3ricamente, el Estado de Derecho supon\xEDa
+    - "\" Estado de Derecho\r\n\nHist\xF3ricamente, el Estado de Derecho supon\xEDa
       la sumisi\xF3n del poder estatal a la norma jur\xEDdica como garant\xEDa de
-      la libertad individual de los particulares.\r\n\r\nLa Constituci\xF3n recoge
-      tal principio consagrando una divisi\xF3n de poderes, en la que el poder legislativo
-      goza de legitimidad democr\xE1tica directa, emanando leyes que gozan de superioridad
-      jer\xE1rquica sobre el resto de la producci\xF3n normativa del Estado. Asimismo,
-      el poder judicial goza de independencia jer\xE1rquica frente a los dem\xE1s
-      poderes, con la finalidad de asegurar su imparcialidad.\r\n\r\nPara completar
-      la concreci\xF3n que la Constituci\xF3n hace del Estado de Derecho, es necesario
-      se\xF1alar el principio de legalidad administrativa, seg\xFAn el cual, la actuaci\xF3n
-      de la Administraci\xF3n p\xFAblica se rige por el Derecho, no habiendo lugar
-      a una actuaci\xF3n que no tenga cobertura normativa. Es la llamada vinculaci\xF3n
-      positiva de los poderes p\xFAblicos, reflejada en el art\xEDculo 9.1 de la Constituci\xF3n.
-      A ello hay que a\xF1adir la interdicci\xF3n de la arbitrariedad de los poderes
-      p\xFAblicos contemplada en el art\xEDculo 9.3.\r\n\r\nEl principio de legalidad
-      penal, tributario y procesal aparece tambi\xE9n expl\xEDcitamente recogido en
-      el ordenamiento jur\xEDdico.\r\n\r\nBas\xE1ndose el Estado en normas jur\xEDdicas,
-      se perfilan tambi\xE9n las caracter\xEDsticas que habr\xE1n de tener \xE9stas
-      en aras de una mayor seguridad jur\xEDdica. De esta manera, el art\xEDculo 9.3
-      proclama el principio de publicidad de las normas, y el principio de irretroactividad
-      de las disposiciones sancionadoras no favorables o restrictivas de derechos
-      individuales\""
+      la libertad individual de los particulares.\r"
   conversacionUI: {fileID: 1917559385}
 --- !u!1 &2129753756
 GameObject:

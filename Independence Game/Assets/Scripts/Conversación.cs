@@ -7,5 +7,5 @@ using UnityEngine.UI;
 public class Conversacion {
  
 	[TextArea(3,10)]
-    public List<string> dialogo;
+    public string[] dialogo;
 }
