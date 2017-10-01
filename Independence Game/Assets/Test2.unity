@@ -145,7 +145,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4086356085862668, guid: 90438017e63268f4fbfff67245be3906, type: 2}
       propertyPath: m_RootOrder
-      value: 46
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 4407316538208862, guid: 90438017e63268f4fbfff67245be3906, type: 2}
       propertyPath: m_LocalRotation.x
@@ -1420,7 +1420,7 @@ Transform:
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 260254599}
-  m_RootOrder: 49
+  m_RootOrder: 48
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &218089173
 MeshRenderer:
@@ -1903,7 +1903,6 @@ Transform:
   - {fileID: 1472385590}
   - {fileID: 2124704835}
   - {fileID: 594993237}
-  - {fileID: 1657623793}
   - {fileID: 1997136899}
   - {fileID: 2062019094}
   - {fileID: 978799275}
@@ -10552,79 +10551,6 @@ MonoBehaviour:
   abertura: 15
   codigo: 1
   panelCodigoUI: {fileID: 0}
---- !u!1 &666875216
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 1176451953659986, guid: 1fc66874ed690d94ba9cc8ebcd77c1eb,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 666875217}
-  - component: {fileID: 666875219}
-  - component: {fileID: 666875218}
-  m_Layer: 0
-  m_Name: Mesh_Book_2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &666875217
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 4442925580836868, guid: 1fc66874ed690d94ba9cc8ebcd77c1eb,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 666875216}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1657623793}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &666875218
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 23730167433135076, guid: 1fc66874ed690d94ba9cc8ebcd77c1eb,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 666875216}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_Materials:
-  - {fileID: 2100000, guid: b99a810061e30f04990c935ce80e1de5, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
---- !u!33 &666875219
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 33682880204580716, guid: 1fc66874ed690d94ba9cc8ebcd77c1eb,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 666875216}
-  m_Mesh: {fileID: 4300000, guid: 9ce2280b5b7dcdb469dcb5dac6fd5301, type: 3}
 --- !u!1 &671702973
 GameObject:
   m_ObjectHideFlags: 0
@@ -19193,7 +19119,7 @@ Transform:
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 260254599}
-  m_RootOrder: 48
+  m_RootOrder: 47
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &978799276
 MeshRenderer:
@@ -19900,6 +19826,7 @@ MonoBehaviour:
   - {fileID: 1058166233}
   tipo: agua
   wp: {fileID: 784536880}
+  mm: {fileID: 0}
   playerIndex: 0
 --- !u!1 &1037329475
 GameObject:
@@ -25885,37 +25812,6 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 10
   m_ShadowAngle: 0
---- !u!1 &1657623792
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 1175661666948896, guid: 1fc66874ed690d94ba9cc8ebcd77c1eb,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1657623793}
-  m_Layer: 0
-  m_Name: libro
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1657623793
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 4072459909380386, guid: 1fc66874ed690d94ba9cc8ebcd77c1eb,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1657623792}
-  m_LocalRotation: {x: -0, y: 0.30070576, z: -0, w: 0.953717}
-  m_LocalPosition: {x: 41.87, y: 8.78, z: 94.88}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 666875217}
-  m_Father: {fileID: 260254599}
-  m_RootOrder: 45
-  m_LocalEulerAnglesHint: {x: 0, y: 35, z: 0}
 --- !u!1 &1712737056
 GameObject:
   m_ObjectHideFlags: 0
@@ -30138,6 +30034,7 @@ MonoBehaviour:
   - {fileID: 418153490}
   tipo: numeros
   wp: {fileID: 831207559}
+  mm: {fileID: 0}
   playerIndex: 0
 --- !u!1 &1917559385
 GameObject:
@@ -30149,6 +30046,7 @@ GameObject:
   - component: {fileID: 1917559386}
   - component: {fileID: 1917559388}
   - component: {fileID: 1917559387}
+  - component: {fileID: 1917559389}
   m_Layer: 5
   m_Name: Dialogo
   m_TagString: Untagged
@@ -30172,8 +30070,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.0000076294, y: -137}
-  m_SizeDelta: {x: -171.9, y: -342.2}
+  m_AnchoredPosition: {x: -0.0000076294, y: -136.2}
+  m_SizeDelta: {x: -171.9, y: -340.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1917559387
 MonoBehaviour:
@@ -30187,7 +30085,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -30208,6 +30106,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1917559385}
+--- !u!114 &1917559389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1917559385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dc9da5f1c73d3d43923f62895ea8e96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textoConver: {fileID: 1220438844}
+  uiConversacion: {fileID: 1917559385}
+  anim: {fileID: 0}
 --- !u!1 &1919749145
 GameObject:
   m_ObjectHideFlags: 0
@@ -31185,7 +31097,7 @@ Transform:
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 260254599}
-  m_RootOrder: 47
+  m_RootOrder: 46
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2062019095
 MonoBehaviour:
@@ -31915,8 +31827,10 @@ GameObject:
   - component: {fileID: 2128625414}
   - component: {fileID: 2128625416}
   - component: {fileID: 2128625415}
+  - component: {fileID: 2128625418}
+  - component: {fileID: 2128625417}
   m_Layer: 0
-  m_Name: Mesh_Book_2
+  m_Name: Libro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31929,8 +31843,8 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2128625413}
-  m_LocalRotation: {x: 0.000000081460335, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.00000008146356, y: 0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.85, y: -0, z: -0.02}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 260254599}
@@ -31977,6 +31891,57 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2128625413}
   m_Mesh: {fileID: 4300054, guid: a1698fc1f25fd46619e9dc5a259ed048, type: 3}
+--- !u!65 &2128625417
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2128625413}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.026608275, y: 0.003993988, z: 0.080483705}
+  m_Center: {x: 0.44647712, y: 0.087332994, z: 0.9603215}
+--- !u!114 &2128625418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2128625413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8ebbc941360366428a529556d7c1578, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  contact: 0
+  conversacion:
+    dialogo:
+    - "Abro el libro y miro que hay un extracto sobre la Constituci\xF3n Espa\xF1ola
+      de a\xF1o 1978 que pone:"
+    - "\" Estado de Derecho\r\n\r\nHist\xF3ricamente, el Estado de Derecho supon\xEDa
+      la sumisi\xF3n del poder estatal a la norma jur\xEDdica como garant\xEDa de
+      la libertad individual de los particulares.\r\n\r\nLa Constituci\xF3n recoge
+      tal principio consagrando una divisi\xF3n de poderes, en la que el poder legislativo
+      goza de legitimidad democr\xE1tica directa, emanando leyes que gozan de superioridad
+      jer\xE1rquica sobre el resto de la producci\xF3n normativa del Estado. Asimismo,
+      el poder judicial goza de independencia jer\xE1rquica frente a los dem\xE1s
+      poderes, con la finalidad de asegurar su imparcialidad.\r\n\r\nPara completar
+      la concreci\xF3n que la Constituci\xF3n hace del Estado de Derecho, es necesario
+      se\xF1alar el principio de legalidad administrativa, seg\xFAn el cual, la actuaci\xF3n
+      de la Administraci\xF3n p\xFAblica se rige por el Derecho, no habiendo lugar
+      a una actuaci\xF3n que no tenga cobertura normativa. Es la llamada vinculaci\xF3n
+      positiva de los poderes p\xFAblicos, reflejada en el art\xEDculo 9.1 de la Constituci\xF3n.
+      A ello hay que a\xF1adir la interdicci\xF3n de la arbitrariedad de los poderes
+      p\xFAblicos contemplada en el art\xEDculo 9.3.\r\n\r\nEl principio de legalidad
+      penal, tributario y procesal aparece tambi\xE9n expl\xEDcitamente recogido en
+      el ordenamiento jur\xEDdico.\r\n\r\nBas\xE1ndose el Estado en normas jur\xEDdicas,
+      se perfilan tambi\xE9n las caracter\xEDsticas que habr\xE1n de tener \xE9stas
+      en aras de una mayor seguridad jur\xEDdica. De esta manera, el art\xEDculo 9.3
+      proclama el principio de publicidad de las normas, y el principio de irretroactividad
+      de las disposiciones sancionadoras no favorables o restrictivas de derechos
+      individuales\""
+  conversacionUI: {fileID: 1917559385}
 --- !u!1 &2129753756
 GameObject:
   m_ObjectHideFlags: 0

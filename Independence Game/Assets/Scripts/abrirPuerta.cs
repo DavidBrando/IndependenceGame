@@ -83,7 +83,7 @@ public class abrirPuerta : MonoBehaviour {
     }
 
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
         if(codigo)
             puzzle = gameObject.GetComponent<PassPuzzle>();
@@ -99,7 +99,7 @@ public class abrirPuerta : MonoBehaviour {
 
     }
 
-    private void OnCollisionStay(Collision collision)
+    private void OnTriggerStay(Collider collision)
     {
         if (Input.GetButtonDown("Interactuar"))
         {

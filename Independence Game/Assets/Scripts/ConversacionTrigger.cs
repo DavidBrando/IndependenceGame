@@ -6,8 +6,9 @@ public class ConversacionTrigger : MonoBehaviour {
 
     public bool contact;
     public Conversacion conversacion;
+    public GameObject conversacionUI;
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
         contact = true;
     }
@@ -16,11 +17,17 @@ public class ConversacionTrigger : MonoBehaviour {
     {
         contact = false;
     }
+
+    private void OnTriggerStay(Collider other)
+    {
+
+        contact = true;
+    }
     private void FixedUpdate()
     {
         if(Input.GetButtonDown("Interactuar") && contact==true)
         {
-            FindObjectOfType<ConversacionManager>().EmpiezaConversacion(conversacion);
+            conversacionUI.GetComponent<ConversacionManager>().EmpiezaConversacion(conversacion);
         }
     }
 }

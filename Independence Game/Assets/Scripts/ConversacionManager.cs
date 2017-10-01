@@ -2,26 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using XInputDotNetPure;
 
 public class ConversacionManager : MonoBehaviour {
 
     private Queue<string> frases;
     public Text textoConver;
     public GameObject uiConversacion;
-    public Animator anim;  
+    public Animator anim;
+    private GamePadState state;
+    private GamePadState laststate;
 
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         frases = new Queue<string>();
 	}
-	
+
+    private void OnEnable()
+    {
+        frases = new Queue<string>();
+    }
     public void EmpiezaConversacion(Conversacion conver)
     {
+
+        uiConversacion.SetActive(true);
         frases.Clear();
 
         //activa el panel que contiene el texto de la conversacion
-        uiConversacion.SetActive(true);
+        
 
         //encola las distintas frases de la conversacion
         conver.dialogo.ForEach(x => frases.Enqueue(x));
