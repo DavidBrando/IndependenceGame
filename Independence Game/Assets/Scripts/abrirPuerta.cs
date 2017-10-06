@@ -8,7 +8,7 @@ public class abrirPuerta : MonoBehaviour {
 
     public float velocidad = 20.0f;
     public float abertura = 15.0f;
-    public bool codigo;
+    public bool codigo,contact;
     private bool movimiento;
     private bool abierta;
     private float rotY;
@@ -22,6 +22,7 @@ public class abrirPuerta : MonoBehaviour {
         abierta = false;
         rotY = transform.rotation.y;
         posIni = transform.position;
+        contact = false;
 	}
 	
 	// Update is called once per frame
@@ -32,7 +33,28 @@ public class abrirPuerta : MonoBehaviour {
             updatePuerta();
         }
 
-	}
+        if (Input.GetButtonDown("Interactuar") && contact == true)
+        {
+            if (!codigo)
+                movimiento = true;
+            else
+            {
+                if (!gameObject.GetComponent<PassPuzzle>().enabled)
+                    gameObject.GetComponent<PassPuzzle>().enabled = true;
+
+                panelCodigoUI.SetActive(true);
+                GameManager.instance.estadoJuego = GameManager.GameState.RESOLVIENDO_PUZZLE;
+                if (puzzle.Solucionado)
+                {
+                    movimiento = true;
+                    panelCodigoUI.SetActive(false);
+                    GameManager.instance.estadoJuego = GameManager.GameState.ACTIVE;
+                }
+            }
+            // transform.localPosition += Vector3.right * velocidad * Time.deltaTime; 
+
+        }
+    }
 
 
 
@@ -83,42 +105,31 @@ public class abrirPuerta : MonoBehaviour {
     }
 
 
+
     private void OnTriggerEnter(Collider collision)
     {
         if(codigo)
+        {
             puzzle = gameObject.GetComponent<PassPuzzle>();
+            contact = true;
+        }
+            
         //collision.
         ////collision.transform.localPosition +=  Vector3.forward;
         //collision.rigidbody.AddRelativeForce(Vector3.down * 5000.0f);
 
     }
 
-    private void OnCollisionExit(Collision collision)
+    private void OnTriggerExit(Collider other)
     {
-   
-
+        if(codigo)
+        {
+            contact = false;
+        }
     }
-
     private void OnTriggerStay(Collider collision)
     {
-        if (Input.GetButtonDown("Interactuar"))
-        {
-           if(!codigo )
-                 movimiento = true;
-           else
-            {
-               panelCodigoUI.SetActive(true);
-               GameManager.instance.estadoJuego = GameManager.GameState.RESOLVIENDO_PUZZLE;
-               if(puzzle.Solucionado)
-               {
-                   movimiento = true;
-                   panelCodigoUI.SetActive(false);
-                   GameManager.instance.estadoJuego = GameManager.GameState.ACTIVE;
-               }
-            }
-            // transform.localPosition += Vector3.right * velocidad * Time.deltaTime; 
 
-        }
 
     }
 

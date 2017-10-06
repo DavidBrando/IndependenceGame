@@ -141,14 +141,13 @@ public class Selector : MonoBehaviour {
             }
         }
 
-        if(tipo == "conversacion")
-        {
-            if(Input.GetKeyDown(KeyCode.F) || (state.Buttons.A == ButtonState.Pressed && laststate.Buttons.A == ButtonState.Released))
-            {
-                cm.GetComponent<ConversacionManager>().SiguienteFrase();
-            }
-        }
-
+        //if(tipo == "conversacion")
+        //{
+        //    if(Input.GetKeyDown(KeyCode.F) || (state.Buttons.A == ButtonState.Pressed && laststate.Buttons.A == ButtonState.Released))
+        //    {
+        //        cm.GetComponent<ConversacionManager>().SiguienteFrase();
+        //    }
+        //}
     }
 
     public void AumentarN()

@@ -10,31 +10,40 @@ public class ConversacionManager : MonoBehaviour {
     public Text textoConver;
     public GameObject uiConversacion;
     
-    private GamePadState state;
-    private GamePadState laststate;
-
 
     // Use this for initialization
     void Start () {
         frases = new Queue<string>();
+        uiConversacion.SetActive(false);
 	}
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F) )
+        {
+            SiguienteFrase();
+        }
+    }
 
     private void OnEnable()
     {
-        frases = new Queue<string>();
+        if(frases!=null)
+            frases.Clear();
+        else
+            frases = new Queue<string>();
     }
 
     public void EmpiezaConversacion(Conversacion conver)
     {
-
-        uiConversacion.SetActive(true);
-        frases.Clear();
-
-        //activa el panel que contiene el texto de la conversacion
         
 
+        uiConversacion.SetActive(true);
+
+        //activa el panel que contiene el texto de la conversacion
+
+
         //encola las distintas frases de la conversacion
-        foreach(string s in conver.dialogo)
+        foreach (string s in conver.dialogo)
         {
             frases.Enqueue(s);
         }
@@ -46,13 +55,16 @@ public class ConversacionManager : MonoBehaviour {
 
     public void SiguienteFrase()
     {
+        Debug.Log("TAMAÑO: " + frases.Count);
         if(frases.Count==0)
         {
             FinConversacion();
             return;
         }
 
+        Debug.Log("jajajaaj " + frases.Count);
         string frase = frases.Dequeue();
+        Debug.Log("desencolo " + frases.Count);
         StopAllCoroutines();
         StartCoroutine(EscribeFrase(frase));
     }
@@ -64,11 +76,13 @@ public class ConversacionManager : MonoBehaviour {
 
     IEnumerator EscribeFrase(string f)
     {
+        
         textoConver.text = "";
         foreach(char c in f.ToCharArray())
         {
             textoConver.text += c;
             yield return null;
         }
+        Debug.Log("En la corrutina " + frases.Count);
     }
 }

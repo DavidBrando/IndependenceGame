@@ -5,7 +5,7 @@ using UnityEngine;
 public class ActivarPuzzleAgua : MonoBehaviour {
 
     public bool contact;
-    public GameObject panelPuzzleAguaUI;
+    public GameObject panelPuzzleAguaUI, player;
     private WaterPuzzle wp;
     public Camera cam1, cam2;
     public GameObject puerta;
@@ -34,6 +34,7 @@ public class ActivarPuzzleAgua : MonoBehaviour {
             cam1.gameObject.SetActive(false);
             cam2.gameObject.SetActive(true);
             panelPuzzleAguaUI.SetActive(true);
+            player.SetActive(false);
             GameManager.instance.estadoJuego = GameManager.GameState.RESOLVIENDO_PUZZLE;
         }
 
@@ -43,6 +44,7 @@ public class ActivarPuzzleAgua : MonoBehaviour {
             cam1.gameObject.SetActive(true);
             cam2.gameObject.SetActive(false);
             panelPuzzleAguaUI.SetActive(false);
+            player.SetActive(true);
             wp.t[2].text = "Solucionado";
             GameManager.instance.estadoJuego = GameManager.GameState.ACTIVE;
             puerta.GetComponent<abrirPuerta>().SetMovimiento(true);

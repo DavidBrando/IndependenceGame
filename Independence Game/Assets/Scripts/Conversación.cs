@@ -8,4 +8,5 @@ public class Conversacion {
  
 	[TextArea(3,10)]
     public string[] dialogo;
+    
 }

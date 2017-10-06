@@ -18,14 +18,10 @@ public class ConversacionTrigger : MonoBehaviour {
         contact = false;
     }
 
-    private void OnTriggerStay(Collider other)
-    {
 
-        contact = true;
-    }
     private void FixedUpdate()
     {
-        if(Input.GetButtonDown("Interactuar") && contact==true)
+        if(Input.GetButtonDown("Interactuar") && contact==true && GameManager.instance.estadoJuego != GameManager.GameState.RESOLVIENDO_PUZZLE)
         {
             conversacionUI.GetComponent<ConversacionManager>().EmpiezaConversacion(conversacion);
         }

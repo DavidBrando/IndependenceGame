@@ -30,10 +30,14 @@ public class PassPuzzle : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        Solucionado = false;
+        pass = "";
+        solucionado = false;
+        n.ForEach(x => x.GetComponent<Text>().text = "0");
         ActualizaPass();
 	}
 	
+
+    
 	// Update is called once per frame
 	void FixedUpdate () {
 
@@ -43,6 +47,7 @@ public class PassPuzzle : MonoBehaviour {
         if (solucion == pass)
         {
             Solucionado = true;
+            Debug.Log("COMBINACION RESUELTA");
         }
 
         ActualizaPass();
@@ -56,8 +61,13 @@ public class PassPuzzle : MonoBehaviour {
 
     private void OnEnable()
     {
-        pass = "";
-        n.ForEach(x => x.GetComponent<Text>().text = "0");
+        if(solucionado)
+        {
+            pass = "";
+            solucionado = false;
+            n.ForEach(x => x.GetComponent<Text>().text = "0");
+        }
+
     }
 
     void ActualizaPass()
@@ -66,5 +76,10 @@ public class PassPuzzle : MonoBehaviour {
         n.ForEach(x => pass += x.GetComponent<Text>().text);
     }
 
+
+    public void Resolver()
+    {
+
+    }
     
 }
